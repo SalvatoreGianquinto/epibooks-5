@@ -6,6 +6,6 @@ describe("comment area test", () => {
   it("mounts comment area", () => {
     render(<CommentArea />)
     const commentarea = screen.getByTestId("comment-area")
-    expect(commentarea).toBeInTheDocument
+    expect(commentarea).toBeInTheDocument()
   })
 })
