@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
-import CommentList from './CommentList'
-import AddComment from './AddComment'
-import Loading from './Loading'
-import Error from './Error'
+import { useEffect, useState } from "react"
+import CommentList from "./CommentList"
+import AddComment from "./AddComment"
+import Loading from "./Loading"
+import Error from "./Error"
 
 const CommentArea = ({ asin }) => {
   const [comments, setComments] = useState([])
@@ -14,10 +14,10 @@ const CommentArea = ({ asin }) => {
       setIsLoading(true)
       try {
         let response = await fetch(
-          'https://striveschool-api.herokuapp.com/api/comments/' + asin,
+          "https://striveschool-api.herokuapp.com/api/comments/" + asin,
           {
             headers: {
-              Authorization: 'Bearer inserisci-qui-il-tuo-token',
+              Authorization: "Bearer inserisci-qui-il-tuo-token",
             },
           }
         )
@@ -28,7 +28,7 @@ const CommentArea = ({ asin }) => {
           setIsLoading(false)
           setIsError(false)
         } else {
-          console.log('error')
+          console.log("error")
           setIsLoading(false)
           setIsError(true)
         }
@@ -44,7 +44,7 @@ const CommentArea = ({ asin }) => {
   }, [asin])
 
   return (
-    <div className="text-center">
+    <div className="text-center" data-testid="comment-area">
       {isLoading && <Loading />}
       {isError && <Error />}
       <AddComment asin={asin} />

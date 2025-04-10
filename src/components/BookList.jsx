@@ -33,6 +33,7 @@ const BookList = ({ books }) => {
               .map((b) => (
                 <Col xs={12} md={4} key={b.asin}>
                   <SingleBook
+                    data-testid="book-item"
                     book={b}
                     selectedBook={selectedBook}
                     changeSelectedBook={changeSelectedBook}
